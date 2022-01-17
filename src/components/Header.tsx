@@ -1,22 +1,46 @@
-import React from "react";
 import styled from "styled-components";
+import { Crypto } from "../App";
+import Dropdown from "./Dropdown";
 import { FlexColumn, FlexRow } from "./Flex";
 import Spacer from "./Spacer";
 
-const Header = () => {
+const Wrapper = styled.div`
+  box-sizing: border-box;
+  width: 640px;
+`;
+interface HeaderProps {
+  crypto: Crypto;
+  setSelectedCrypto: (input: Crypto) => void;
+}
+
+const Header = ({ crypto, setSelectedCrypto }: HeaderProps) => {
   return (
-    <FlexRow align="end end">
-      <FlexColumn style={{ maxWidth: "12em", paddingRight: 150 }}>
-        <h1 style={{ fontSize: "4em" }}>LOGO</h1>
+    <FlexColumn align="start center">
+      <Wrapper style={{ width: "640" }}>
+        <h1 style={{ fontSize: "6em", color: "#E6007E", fontWeight: 500 }}>
+          <small style={{ fontSize: ".5em" }}>the</small> BIG FOMO
+        </h1>
         <Spacer />
-        <p>
-          Collaboratively administrate empowered markets via plug-and-play
-          networks. Dynamically procrastinate B2C users after installed base
-          benefits. Dramatically visualize customer directed convergence without
-          revolutionary ROI.
+        <p style={{ color: "grey" }}>
+          Visualizing the staggering ROI of crypto.
         </p>
-      </FlexColumn>
-    </FlexRow>
+        <Spacer />
+        <Spacer />
+        <Spacer />
+        <FlexRow align="center center">
+          <span style={{ paddingRight: ".5em" }}>Im interested in</span>
+          <Dropdown
+            initialValue={crypto.toString()}
+            options={[
+              { value: "Bitcoin", label: "Bitcoin" },
+              { value: "Ethereum", label: "Ethereum" },
+              { value: "Ripple", label: "Ripple" },
+            ]}
+            onChange={(value) => setSelectedCrypto(value as Crypto)}
+          />
+        </FlexRow>
+      </Wrapper>
+    </FlexColumn>
   );
 };
 

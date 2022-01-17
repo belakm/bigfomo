@@ -23,3 +23,5 @@ export const intToString = (num2: number) => {
       .replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[index].s
   );
 };
+
+export const intToStringLongFormat = (num: number) => num.toLocaleString();
