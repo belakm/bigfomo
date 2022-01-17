@@ -1,4 +1,4 @@
-# Big fomo
+# Big FOMO
 
 A cute little project visualizing the growth of crypto made for an internal hackaton at Sowalabs. Made in collaboration with Tobias Becer and Gregor Slavec.
 
